@@ -1,0 +1,3 @@
+1- nisam stavila komentare iskreno zaboravila taj dio na slike.
+2- folderi koji se ne diraju je vendors i build (to je bootrstrap i skinuto sa neta (No Touchy Touchy)) 
+3-Nakon sto ustanovite koje stvari jos fale i koje treba izbaciit, napisite i zasto treba izbaviciti
