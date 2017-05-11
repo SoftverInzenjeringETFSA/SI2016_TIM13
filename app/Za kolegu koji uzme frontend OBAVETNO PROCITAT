@@ -1,0 +1,41 @@
+MOJE PREPORUKE STA BI TREBALO DA BI SE NASTAVILO KAKO TREBA: 
+
+-prije nego pocnes prepravljati html (sto nema potrebe da radis , ali za dodavanje komentara, da), pokusaj integrisati n
+a EMBER, ja sam uploadovala osnovni ember fajl, ali nisam integrisala
+
+-ono sto sam spremila za to je :  sve ekstenzije koji ember podrzava u HTML5 I BOOTSTRAP FOLDERU.
+
+-S obzirom da ces ionako iznova uciti EMBER  bolje da kreiras sam isti (ember new instagramLIKE) i tu ubacis ove sstvari
+
+-Da bi ti sve ovo uspjelo , moras  skinuti (ember install bootstrap, instalirati ekstenzije za css u scss, i instalirati
+zadnju veriju jquery, podrazumjevajuci da si vec skinuo bower ,NODE  npm(progugalaj o ovim stvarima))
+
+-Obavezno preci sve tutorijale na youtube i ovo : http://yoember.com/ pa tek onda mijenjati.(NAJBOLJE UZ TUTORIJAL)
+
+
+-Svaka moguca sekcija tj dio u HTMLu ti je opisana u koemntarima, sta je sta, i koji dio koda.. vidjet ces u emberu se
+malo to rastrka, ali sve sam lijepo opisala sta je sta u kodu da nemas poroblema sa pristupom.Tipa imat ces da definises 
+sta ce se pokazivati u svakoj stranici a to je  <side meni> <header> <bootsrap> <top panel> itd.. sve je definisano sta 
+je sta u kodu za sve stranice
+
+-Na dnu svake stranice imaju sve skripte koje se koriste.. neke su viska, iskreno ja ih nisam pisala , kopirane su sa jednog directorya
+ali bittno je da sve rade bez problema
+
+-vendors U HTML varijanti , malo prodji sadrzaj i sta se koristi i sta se sastoji u vendors. to sadrzi vec generisane skripte sa
+neta i sadrzi izglede ikonice i sve sto se koristilo i vise.Apsolutno NE BRISAT! dobro pogledaj u emberu gdje se to ubacuje.
+
+
+-ovo je buildani bootstrap, to ti je najmanje bitno, ali sve se moze includat i u ember i u angular i u react (cak).
+
+-radna verzija css ti je custom.css, a ona koju poziva bootrstap je custom.min.css ako bude bilo zbrke.. nista ne diraj 
+(za ember ce trebati staviti u stiles)
+
+-Da smo imali malo vise vremena ja sam krenula da skroz importujem, ali necu ni polovicno poslati zato sto ce vas zbuniti.
+Html je jako cist. 
+
+-Imala sam u planu da stavim Flex update na  slike.. da je flexibilno pozicioniranje slika. To nije funkcionalnst, pa nije obavezno. 
+
+-Onaj settings i help  uopce ne treba!
+
+-Ako budes imao/la ikakvih pitanja sto se tice izgleda javite mi se(Ajla je).
+
