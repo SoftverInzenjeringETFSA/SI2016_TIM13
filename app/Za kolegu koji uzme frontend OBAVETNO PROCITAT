@@ -30,9 +30,6 @@ neta i sadrzi izglede ikonice i sve sto se koristilo i vise.Apsolutno NE BRISAT!
 -radna verzija css ti je custom.css, a ona koju poziva bootrstap je custom.min.css ako bude bilo zbrke.. nista ne diraj 
 (za ember ce trebati staviti u stiles)
 
--Da smo imali malo vise vremena ja sam krenula da skroz importujem, ali necu ni polovicno poslati zato sto ce vas zbuniti.
-Html je jako cist. 
-
 -Imala sam u planu da stavim Flex update na  slike.. da je flexibilno pozicioniranje slika. To nije funkcionalnst, pa nije obavezno. 
 
 -Onaj settings i help  uopce ne treba!
