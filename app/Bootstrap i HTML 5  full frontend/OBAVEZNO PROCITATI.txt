@@ -1,3 +1,6 @@
 1- nisam stavila komentare iskreno zaboravila taj dio na slike.
-2- folderi koji se ne diraju je vendors i build (to je bootrstrap i skinuto sa neta (No Touchy Touchy)) 
-3-Nakon sto ustanovite koje stvari jos fale i koje treba izbaciit, napisite i zasto treba izbaviciti
+2- Kada se klikne na sliku skriptu dodati da se otvori, i komentari sa desne strane
+3- Trebalo bi na" my post "(reimenovati i staviti PANELS) , tu bi ispod staviti sti UI zkao sto su my panels  za panels koje pratim samo kopirati formu iznad.
+4- Pretraga po prijateljima tj njihovim panelima 
+5- folderi koji se ne diraju je vendors i build (to je bootrstrap i skinuto sa neta (No Touchy Touchy)) 
+
