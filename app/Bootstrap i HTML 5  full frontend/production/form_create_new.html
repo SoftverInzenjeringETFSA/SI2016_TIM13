@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+ 
+ 
+ 
+ 
+ 
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -58,9 +63,9 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">        
                 <ul class="nav side-menu">
-               <li><a href="index.html"><i class="fa fa-home"></i> Home </a></li>
+                <li><a href="index.html"><i class="fa fa-home"></i> Home </a></li>
                   <li><a href="form_create_new.html"><i class="fa fa-edit"></i> Create new</a></li>
-                  <li><a href="my_panels.html"><i class="fa fa-clone"></i>My posts </a></li></ul>
+                  <li><a href="my_panels.html"><i class="fa fa-clone"></i>My posts </a></li> </ul>
               </div>
             </div>
             <!-- /sidebar menu -->
@@ -116,7 +121,7 @@
                     <i class="fa fa-star-o"></i>
                     <span class="badge bg-green">1</span>
                   </a>
-                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a >
 
@@ -130,7 +135,9 @@
                         </span>
                       </a>
                     </li>
-                         
+                  
+                  
+                  
                     <li>
                       <div class="text-center">
                         <a href="notification.html">
@@ -153,7 +160,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>User Profile</h3>
+                <h3>Create new panel</h3>
               </div>
 
               <div class="title_right">
@@ -169,111 +176,71 @@
             </div>
 
             <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12">
+ 
+ <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                 
+                  <div class="x_title">
+                    <h2>Add new </h2>
+                    <div class="clearfix"></div>
+                  </div>
+
+
                   <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
-                    <div class="row">
-
-                   
-                        <div class="col-md-4">
-                        <div class="#">
-                          <div class="image view view-first">
-                            <img style="width: 100%; " src="images/8.jpg" alt="image" />
-                            <div class="mask">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-thumbs-up"></i></a>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                     
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>#dogs #love</p>
-                          </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Panel name: <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
-                      </div>  <div class="col-md-4">
-                        <div class="#">
-                          <div class="image view view-first">
-                            <img style="width: 100%; " src="images/5.jpg" alt="image" />
-                            <div class="mask">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-thumbs-up"></i></a>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
+                      </div>
+
+
                      
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>#dogs #love</p>
+                      <div class="form-group">
+                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">This panel is about: </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Type</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <div id="tip" class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="tip" value="private"> &nbsp;Private &nbsp;
+                            </label>
+                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                              <input type="radio" name="tip" value="public"> Public
+                            </label>
                           </div>
                         </div>
                       </div>
 
-                    <div class="col-md-4">
-                        <div class="#">
-                          <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="images/6.jpg" alt="image" />
-                            <div class="mask">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-thumbs-up"></i></a>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                     
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>#dogs #love</p>
-                          </div>
-                        </div>
-                      </div>  <div class="col-md-4">
-                        <div class="#">
-                          <div class="image view view-first">
-                            <img style="width: 100%; " src="images/2.png" alt="image" />
-                            <div class="mask">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-thumbs-up"></i></a>
-                                <a href="#"><i class="fa fa-star-o"></i></a>
-                     
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p>#dogs #love</p>
-                          </div>
+
+                      
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            
+                         <!--na submit bi trebalo da ide na html-->
+                          <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="#">
-                          <div class="image view view-first">
-                            <img style="width: 100%; " src="images/9.png" alt="image" />
-                            <div class="mask no-caption">
-                              <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#"><i class="fa fa-pencil"></i></a>
-                                <a href="#"><i class="fa fa-times"></i></a>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="caption">
-                            <p><strong>Image Name</strong>
-                            </p>
-                            <p>Snow and Ice Incoming</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      
+
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- /page content -->
-      
+             <div class="right_col" role="main">
+          <!-- top tiles -->
           
           <!-- /top tiles -->
 
