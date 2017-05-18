@@ -1,0 +1,13 @@
+SLIKE, FONTOVI I SL.:
+To add images, fonts, or other assets, place them in the public/assets directory. For example, if you place logo.png in public/assets/images, you can reference it in templates with assets/images/logo.png or in stylesheets with url('/assets/images/logo.png').
+
+CSS:
+Ember CLI supports plain CSS out of the box. You can add your css styles to app/styles/app.css and it will be served at assets/application-name.css
+
+css se može organizovati po fajlovima a nakon toga uraditi import u app.css fajl.
+npr: @import url;
+
+
+JS:
+Spremimo u folder vendor i u .ember-cli-build fajlu dodamo
+app.import('url js-a');
