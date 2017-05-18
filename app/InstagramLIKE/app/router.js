@@ -8,7 +8,13 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('new_panel');
+  this.route('new-panel');
+  this.route('index');
+  this.route('form-upload');
+  this.route('form-validation');
+  this.route('my-panels');
+  this.route('notification');
+  this.route('profile');
 });
 
 export default Router;
