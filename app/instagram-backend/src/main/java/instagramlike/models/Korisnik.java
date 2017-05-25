@@ -37,7 +37,7 @@ public class Korisnik implements Serializable {
     	
     }
     public Korisnik(String ime, String email, String opis, String sifra) {
-    	this.korisnikId = 1;
+    	
     	this.korisnickoIme = ime;
     	this.email = email;
     	this.kratakOpis = opis;
