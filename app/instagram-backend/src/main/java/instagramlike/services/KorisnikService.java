@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import instagramlike.models.HashMD5;
 import instagramlike.models.Korisnik;
 import instagramlike.repositories.KorisnikRepository;
 
@@ -22,10 +23,6 @@ public class KorisnikService {
         return repository.findAll();
     }
     
-    public Korisnik findOne(Integer id) {
-    	return repository.findOne(id);
-	}
-
 	public Korisnik findByUsername (String username) {
 		return repository.findByKorisnickoIme(username);
 	}
@@ -34,9 +31,27 @@ public class KorisnikService {
 		repository.save(korisnik);
 	}
 	
-	
 	public Boolean updateKorisnik (Korisnik korisnik) {
 		repository.save(korisnik);
+		return true;
+	}
+
+	public Boolean updateKorisnik(String userName, String newUserName, String newEmail, String newPassword) {
+		//slati prazan string ukoliko nešto ne želimo mijenjati
+		Korisnik korisnik = this.repository.findByKorisnickoIme(userName);
+		
+		if (korisnik == null)
+			//ne postoji u bazi
+			return false;
+		
+		if (newUserName != "")
+			korisnik.setKorisnickoIme(newUserName);
+		if (newEmail != "")
+			korisnik.setEmail(newEmail);
+		if (newPassword != "")
+			korisnik.setKorisnickaSifraHash(HashMD5.getMD5(newPassword));
+		
+		this.repository.save(korisnik);
 		return true;
 	}
 	
@@ -47,12 +62,13 @@ public class KorisnikService {
 			return false; //da se ne moramo baviti hendlanjem izuzetaka
         }
         Korisnik kreiranKorisnik = repository.save(korisnik);
+        //Napomena: ne hesira 2x jer se hesiranje radi ovdje pri spremanju korisnika u bazu
+        kreiranKorisnik.setKorisnickaSifraHash(HashMD5.getMD5(korisnik.getKorisnickaSifraHash()));
         //return kreiranKorisnik != null;
         return true;
 	}
 	
-	public boolean removeKorisnik(String userName) {
-		
+	public Boolean removeKorisnik(String userName) {
 		return this.repository.deleteByKorisnickoIme(userName);
 	}
 }

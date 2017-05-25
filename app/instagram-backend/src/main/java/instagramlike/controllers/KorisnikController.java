@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-@RequestMapping(path="/korisnici")
+@RequestMapping(path="/korisnik")
 public class KorisnikController {
 
 	@Autowired
@@ -44,6 +44,7 @@ public class KorisnikController {
     @RequestMapping(value = "/register", method = RequestMethod.PUT)
     public String register(@RequestBody Korisnik korisnik)
     {   
+    	//provjeriti sta koja fja vraca i uraditi
     		korisnikService.addKorisnik(korisnik);
             return korisnik.toString(); 
     }
@@ -96,6 +97,16 @@ public class KorisnikController {
     	
     	korisnikService.removeKorisnik(user);
         return "obavljeno";
+    }
+    
+    @RequestMapping(path = "/getid", method = RequestMethod.GET) 
+    public Integer getKorisnikID(@RequestParam(name = "user") String user) {
+    	Korisnik korisnik = this.korisnikService.findByUsername(user);
+    	
+    	if (korisnik == null)
+    		return 0; //vrati nulu ako korisnik ne postoji
+    	
+    	return korisnik.getkorisnik_id();
     }
     
 }
