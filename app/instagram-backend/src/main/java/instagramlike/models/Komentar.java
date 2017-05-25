@@ -53,10 +53,11 @@ public class Komentar {
 	}
 	
 	//Setters
+	/*
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+	*/
 	public void setFotoID(int id) {
 		this.fotoID = id;
 	}

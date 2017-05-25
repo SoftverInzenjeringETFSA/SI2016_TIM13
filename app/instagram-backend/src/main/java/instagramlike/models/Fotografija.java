@@ -68,11 +68,11 @@ public class Fotografija {
 	public Blob getFotogradija() {
 		return this.fotografija;
 	}
-	
+	/*
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+	*/
 	public void setKorisnikID(Integer id) {
 		this.korisnikID = id;
 	}
