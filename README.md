@@ -6,4 +6,6 @@
 Ime proizvoda će biti Instagram."
 
 U app folderu se nalazi back-end i front-end web aplikacije.
-U baza folderu se nalazi baza (dump baze je tim13).
+
+
+U baza folderu se nalazi baza (dump baze je u tim13.sql).
