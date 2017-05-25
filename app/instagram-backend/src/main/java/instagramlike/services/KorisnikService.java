@@ -26,29 +26,33 @@ public class KorisnikService {
     	return repository.findOne(id);
 	}
 
-	public Korisnik findByUsername (String username)	{return repository.findByKorisnickoIme(username);}
+	public Korisnik findByUsername (String username) {
+		return repository.findByKorisnickoIme(username);
+	}
 
 	public void addKorisnik (Korisnik korisnik) {
 		repository.save(korisnik);
 	}
 	
-	public void removeKorisnik (int id) {
-		repository.delete(id);
-	}
 	
 	public Boolean updateKorisnik (Korisnik korisnik) {
 		repository.save(korisnik);
 		return true;
 	}
 	
-	public Boolean registerKorisnik(Korisnik korisnik) {
+	public boolean registerKorisnik(Korisnik korisnik) {
 		
 		if(repository.findByKorisnickoIme(korisnik.getKorisnickoIme()) != null) {
-            throw new ServiceException("Korisnik sa datim username-om vec postoji!");
+            //throw new ServiceException("Korisnik sa datim username-om vec postoji!");
+			return false; //da se ne moramo baviti hendlanjem izuzetaka
         }
-
         Korisnik kreiranKorisnik = repository.save(korisnik);
-
-        return kreiranKorisnik != null;
+        //return kreiranKorisnik != null;
+        return true;
+	}
+	
+	public boolean removeKorisnik(String userName) {
+		
+		return this.repository.deleteByKorisnickoIme(userName);
 	}
 }

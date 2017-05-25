@@ -33,19 +33,22 @@ public class KorisnikController {
 	@Autowired
     private KorisnikService korisnikService;
 	
-	
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register()
-    {
-        
-        	Korisnik k = new Korisnik("emina", "emina@hotmail.com", "supersuper", "123");
-    		korisnikService.addKorisnik(k);
-                return k.toString();
-        
-
-
+	//autowired se bavi povezivanjem prema tipu tako da ce
+	//povezati korisnik servis
+    @Autowired
+    public void setKorisnikService(KorisnikService korisnikServis) {
+        this.korisnikService = korisnikServis;
     }
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+	
+	
+    @RequestMapping(value = "/register", method = RequestMethod.PUT)
+    public String register(@RequestBody Korisnik korisnik)
+    {   
+    		korisnikService.addKorisnik(korisnik);
+            return korisnik.toString(); 
+    }
+    
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResponseEntity update(@RequestBody Korisnik korisnik ) {
         try {
             return ResponseEntity.status(HttpStatus.OK)
@@ -57,12 +60,6 @@ public class KorisnikController {
         }
     }
 
-
-    @Autowired
-    public void setKorisnikService(KorisnikService korisnikServis) {
-        this.korisnikService = korisnikServis;
-    }
-
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
     public List<Korisnik> findAll() {
     	List<Korisnik> k;
@@ -71,7 +68,7 @@ public class KorisnikController {
     	
     	return k;
     }
-
+    /* za šta služi skontati pa otkomentarisati ako treba 
     @RequestMapping(path="/get", method = RequestMethod.GET)
     public List<Korisnik> viewKorisnici(@RequestParam(name = "id", defaultValue = "1") int id) {
     	List<Korisnik> k = new ArrayList<Korisnik>();
@@ -80,8 +77,8 @@ public class KorisnikController {
     	
     	return k;
     }
-    
-    @RequestMapping(path= "/add", method = RequestMethod.GET)
+    */
+    @RequestMapping(path= "/add", method = RequestMethod.PUT)
 	public String addKorisnici(@ModelAttribute("imeForme") Korisnik k){
 		
 		if(k.getkorisnik_id() == 0) {
@@ -94,13 +91,11 @@ public class KorisnikController {
 		return "done";
 	}
     
-    @RequestMapping(path = "/delete", method = RequestMethod.GET)
-    public String deleteKorisnici(@RequestParam(name = "id") int id) {
+    @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
+    public String deleteKorisnici(@RequestParam(name = "user") String user) {
     	
-    	korisnikService.removeKorisnik(id);
+    	korisnikService.removeKorisnik(user);
         return "obavljeno";
     }
     
-
-
 }
