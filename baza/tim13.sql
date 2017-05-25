@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2017 at 10:50 AM
+-- Generation Time: May 25, 2017 at 12:28 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `instagramlike`
+-- Database: `tim13`
 --
 
 -- --------------------------------------------------------
@@ -65,12 +65,19 @@ CREATE TABLE `komentari` (
 --
 
 CREATE TABLE `korisnici` (
+  `korisnik_id` int(11) NOT NULL,
   `korisnicko_ime` varchar(20) NOT NULL,
-  `korisnicka_sifra_hash` varchar(30) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `kratak_opis` varchar(100) NOT NULL,
-  `korisnik_id` int(11) NOT NULL
+  `korisnicka_sifra_hash` varchar(255) NOT NULL,
+  `kratak_opis` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `korisnici`
+--
+
+INSERT INTO `korisnici` (`korisnik_id`, `korisnicko_ime`, `email`, `korisnicka_sifra_hash`, `kratak_opis`) VALUES
+(3, 'test', 'testni@mail.com', '0cbc6611f5540bd0809a388dc95a615b', NULL);
 
 -- --------------------------------------------------------
 
@@ -281,7 +288,7 @@ ALTER TABLE `komentari`
 -- AUTO_INCREMENT for table `korisnici`
 --
 ALTER TABLE `korisnici`
-  MODIFY `korisnik_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `korisnik_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `lokacije`
 --
