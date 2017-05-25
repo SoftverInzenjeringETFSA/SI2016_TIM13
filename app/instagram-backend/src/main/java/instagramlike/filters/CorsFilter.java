@@ -1,4 +1,4 @@
-package filters;
+package instagramlike.filters;
 
 import java.io.IOException;
 import javax.servlet.Filter;

@@ -1,4 +1,4 @@
-package models;
+package instagramlike.models;
 
 
 import java.io.Serializable;
@@ -17,34 +17,45 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="korisnik")
+@Table(name="korisnici")
 public class Korisnik implements Serializable {
 	private static final long serialVersionUID = 1L;
 	  
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer idKorisnik; 
-    
+    @Column(name="korisnik_id")
+    private Integer korisnikId; 
+    @Column(name="korisnicko_ime")
     private String korisnickoIme;
     private String email;
+    @Column(name="kratak_opis")
     private String kratakOpis;
-    private String korisnickaSifraHash;
+    @Column(name="korisnicka_sifra_hash")
+    private String korisnickaSifra;
    
     public Korisnik() {
     	
     }
+    public Korisnik(String ime, String email, String opis, String sifra) {
+    	this.korisnikId = 1;
+    	this.korisnickoIme = ime;
+    	this.email = email;
+    	this.kratakOpis = opis;
+    	this.korisnickaSifra = sifra;
+    }
     
-    public Integer getIdKorisnik() {
-		return this.idKorisnik;
+    
+    public Integer getkorisnik_id() {
+		return this.korisnikId;
 	}
-	public void setIdKorisnik(Integer id) {
-		this.idKorisnik = id;
+	public void setkorisnik_id(Integer id) {
+		this.korisnikId = id;
 	}
 	public String getKorisnickaSifraHash() {
-		return korisnickaSifraHash;
+		return korisnickaSifra;
 	}
 	public void setKorisnickaSifraHash(String password) {
-		this.korisnickaSifraHash = password;
+		this.korisnickaSifra = password;
 	}
 	public String getEmail() {
 		return email;
@@ -69,6 +80,6 @@ public class Korisnik implements Serializable {
 	
 	@Override
     public String toString() {
-        return String.format("Korisnik[id=%d, password='%s', email='%s']", idKorisnik, korisnickaSifraHash, email);
+        return String.format("Korisnik[id=%d, password='%s', email='%s']", korisnikId, korisnickaSifra, email);
     }
 }

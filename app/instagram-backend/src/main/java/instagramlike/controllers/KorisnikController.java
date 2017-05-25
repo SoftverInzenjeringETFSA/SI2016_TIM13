@@ -1,4 +1,4 @@
-package controllers;
+package instagramlike.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import models.Korisnik;
-import services.KorisnikService;
+import instagramlike.models.Korisnik;
+import instagramlike.services.KorisnikService;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,23 +28,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-@RequestMapping(path="/korisnik")
+@RequestMapping(path="/korisnici")
 public class KorisnikController {
 
 	@Autowired
     private KorisnikService korisnikService;
 	
 	
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity register(@RequestBody Korisnik korisnik)
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register()
     {
-        try {
-                return ResponseEntity.status(HttpStatus.OK).body(korisnikService.registerKorisnik(korisnik));
-               
-        }
-        catch (ServiceException e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getLocalizedMessage());
-        }
+        
+        	Korisnik k = new Korisnik("emina", "emina@hotmail.com", "super", "123");
+    		korisnikService.addKorisnik(k);
+                return k.toString();
+        
 
 
     }
@@ -87,7 +85,7 @@ public class KorisnikController {
     @RequestMapping(path= "/add", method = RequestMethod.GET)
 	public String addKorisnici(@ModelAttribute("imeForme") Korisnik k){
 		
-		if(k.getIdKorisnik() == 0) {
+		if(k.getkorisnik_id() == 0) {
 			korisnikService.addKorisnik(k);
 		}
 		else {

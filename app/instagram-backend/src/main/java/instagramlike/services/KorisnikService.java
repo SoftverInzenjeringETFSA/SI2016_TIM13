@@ -1,4 +1,4 @@
-package services;
+package instagramlike.services;
 
 
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import models.Korisnik;
-import repositories.KorisnikRepository;
+import instagramlike.models.Korisnik;
+import instagramlike.repositories.KorisnikRepository;
 
 @Service
 public class KorisnikService {
