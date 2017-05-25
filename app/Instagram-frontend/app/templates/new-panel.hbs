@@ -19,7 +19,7 @@
            </div>
            <div class="profile_info">
              <span>Welcome,</span>
-             <h2>Ajla (najljepša djevojka u timu) Šukrija</h2>
+             <h2>Ajla Šukrija</h2>
            </div>
          </div>
          <!-- /menu profile quick info -->
@@ -28,9 +28,17 @@
          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
            <div class="menu_section">
              <ul class="nav side-menu">
-             <li><a href="index.html"><i class="fa fa-home"></i> Home </a></li>
-               <li><a href="form_create_new.html"><i class="fa fa-edit"></i> Create new</a></li>
-               <li><a href="my_panels.html"><i class="fa fa-clone"></i>My posts </a></li> </ul>
+             
+               <li><a href="index.html"><i class="fa fa-home"></i> Home </a></li>
+
+              {{#link-to 'new-panel' class="btn"}}
+                  <li><a href="form_create_new.html"><i class="fa fa-edit"></i> Create new</a></li>
+              {{/link-to}}
+
+              {{#link-to 'my-panels' class="btn"}}
+               <li><a href="my_panels.html"><i class="fa fa-clone"></i>My posts </a></li> 
+              {{/link-to}}
+              </ul>
            </div>
          </div>
          <!-- /sidebar menu -->
