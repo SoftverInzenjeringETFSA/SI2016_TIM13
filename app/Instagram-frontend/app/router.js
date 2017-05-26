@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('my-panels');
   this.route('notification');
   this.route('profile');
+  this.route('home');
 });
 
 export default Router;
