@@ -1,10 +1,11 @@
 ﻿# Nakon zamjene (Tim12 - Tim13)
 
-U app folderu se nalazi back-end i front-end web aplikacije.
+U app folderu se nalazi back-end i front-end web aplikacije (ono sto je uradeno).
 
 
 U baza folderu se nalazi baza (dump baze je u tim13.sql).
 
+Note: imali smo problema sa bazom i mapiranjem kontrolera na sto smo izgubili dosta vremena.
 
 # SI2016_TIM13
  
