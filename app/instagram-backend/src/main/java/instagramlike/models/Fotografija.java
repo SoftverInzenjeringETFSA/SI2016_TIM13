@@ -12,7 +12,7 @@ import com.mysql.jdbc.Blob;
 @Entity
 @Table(name="fotografije")
 public class Fotografija {
-		
+			
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="fotografija_id")

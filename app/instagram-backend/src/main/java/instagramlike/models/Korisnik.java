@@ -9,10 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name="korisnici")
 public class Korisnik implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	  
     @Id

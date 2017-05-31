@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/*
 @Entity
 @Table(name="zahtjevi_za_pridruzivanje")
 public class ZahtjevZaPridruzivanje {
@@ -49,7 +49,7 @@ public class ZahtjevZaPridruzivanje {
 	 public void setId(Integer id) {
 	 	this.id = id;
 	 }
-	 */
+	 *//*
 	public void setKorisnikID(Integer id) {
 		this.korisnikID = id;
 	}
@@ -59,3 +59,4 @@ public class ZahtjevZaPridruzivanje {
 	}
 	
 }
+*/

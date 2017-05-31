@@ -1,12 +1,7 @@
 package instagramlike.services;
 
 
-import java.util.List;
-
-import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import instagramlike.models.HashMD5;
@@ -25,15 +20,6 @@ public class KorisnikService {
     
 	public Korisnik findByUsername (String username) {
 		return repository.findByKorisnickoIme(username);
-	}
-
-	public void addKorisnik (Korisnik korisnik) {
-		repository.save(korisnik);
-	}
-	
-	public Boolean updateKorisnik (Korisnik korisnik) {
-		repository.save(korisnik);
-		return true;
 	}
 
 	public Boolean updateKorisnik(String userName, String newUserName, String newEmail, String newPassword) {

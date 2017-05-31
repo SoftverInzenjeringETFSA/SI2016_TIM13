@@ -2,11 +2,19 @@ package instagramlike.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
-
+/*
 @Entity
 @Table(name="ucesnici_panela")
 public class UcesniciPanela {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ucesce_id")
+	private Integer id;
 	
 	@Column(name="korisnik_id")
 	private Integer korisnikID;
@@ -18,6 +26,7 @@ public class UcesniciPanela {
 	public UcesniciPanela() {}
 	
 	public UcesniciPanela(Integer korisnikID, Integer panelID) {
+		//this.id = id;
 		this.korisnikID = korisnikID;
 		this.panelID = panelID;
 	}
@@ -41,3 +50,4 @@ public class UcesniciPanela {
 	}
 	
 }
+*/
