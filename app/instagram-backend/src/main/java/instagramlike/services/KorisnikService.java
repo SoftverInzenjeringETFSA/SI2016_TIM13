@@ -54,6 +54,10 @@ public class KorisnikService {
         return true;
 	}
 	
+	public Korisnik updateKorisnik(Korisnik korisnik) {
+		return this.repository.save(korisnik);
+	}
+	
 	public Boolean removeKorisnik(String userName) {
 		return this.repository.deleteByKorisnickoIme(userName);
 	}
