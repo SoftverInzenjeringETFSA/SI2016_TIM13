@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-/*
+
 @Entity
 @Table(name="lokacije")
 public class Lokacija {
@@ -41,10 +41,9 @@ public class Lokacija {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	*//*
+	*/
 	public void setLokacija(String lokacija) {
 		this.naziv = lokacija;
 	}
 	
 }
-*/

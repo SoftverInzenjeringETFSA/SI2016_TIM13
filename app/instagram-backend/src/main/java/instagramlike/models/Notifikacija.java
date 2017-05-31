@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-/*
+
 @Entity
 @Table(name="notifikacije")
 public class Notifikacija {
@@ -49,7 +49,7 @@ public class Notifikacija {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	*//*
+	*/
 	public void setKorisnikID(Integer id) {
 		this.korisnikID = id;
 	}
@@ -65,4 +65,3 @@ public class Notifikacija {
 							this.id, this.korisnikID, this.tipNotifikacije);
 	}
 }
-*/
