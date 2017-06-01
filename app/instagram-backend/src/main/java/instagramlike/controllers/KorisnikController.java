@@ -45,7 +45,7 @@ public class KorisnikController {
     public String register(@RequestBody Korisnik korisnik)
     {   
     	//provjeriti sta koja fja vraca i uraditi
-    		korisnikService.addKorisnik(korisnik);
+    		korisnikService.registerKorisnik(korisnik);
             return korisnik.toString(); 
     }
     
@@ -83,7 +83,7 @@ public class KorisnikController {
 	public String addKorisnici(@ModelAttribute("imeForme") Korisnik k){
 		
 		if(k.getkorisnik_id() == 0) {
-			korisnikService.addKorisnik(k);
+			korisnikService.registerKorisnik(k);
 		}
 		else {
 			korisnikService.updateKorisnik(k);
