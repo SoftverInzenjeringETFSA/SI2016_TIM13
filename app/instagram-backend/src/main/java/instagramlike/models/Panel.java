@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-/*
+
 @Entity
 @Table(name="paneli")
 public class Panel {
@@ -49,7 +49,7 @@ public class Panel {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	*//*
+	*/
 	public void setKreatorID(Integer id) {
 		this.kreatorID = id;
 	}
@@ -65,4 +65,4 @@ public class Panel {
 							this.id, this.kreatorID, this.privatnost);
 	}
 	
-}*/
+}

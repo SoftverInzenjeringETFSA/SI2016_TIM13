@@ -2,11 +2,12 @@ package instagramlike.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import instagramlike.models.ZahtjevZaPrijateljstvo;
 import instagramlike.repositories.ZahtjevZaPrijateljstvoRepository;
 
+@Service
 public class ZahtjevZaPrijateljstvoService {
 
 	@Autowired
@@ -17,8 +18,12 @@ public class ZahtjevZaPrijateljstvoService {
 		return repo.findAll();
 	}
 	
-	public List<ZahtjevZaPrijateljstvo> findRequestsByUserID(Integer ID) {
-		return repo.findAllByKorisnikID(ID);
+	public List<ZahtjevZaPrijateljstvo> findRequestsBySenderID(Integer ID) {
+		return repo.findAllByposiljaocID(ID);
+	}
+	
+	public List<ZahtjevZaPrijateljstvo> findRequestsByReceiverID(Integer ID) {
+		return repo.findAllByprimaocID(ID);
 	}
 	
 	public ZahtjevZaPrijateljstvo findRequestsByID(Integer ID) {
@@ -29,8 +34,12 @@ public class ZahtjevZaPrijateljstvoService {
 		return repo.deleteByid(ID);
 	}
 	
-	public Boolean deleteRequestByUserID(Integer ID) {
-		return repo.deleteByKorisnikID(ID);
+	public Boolean deleteRequestBySenderID(Integer ID) {
+		return repo.deleteByposiljaocID(ID);
+	}
+	
+	public Boolean deleteRequestByReceiverID(Integer ID) {
+		return repo.deleteByprimaocID(ID);
 	}
 	
 	

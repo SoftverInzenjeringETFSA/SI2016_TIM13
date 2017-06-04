@@ -5,9 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
-
-import com.mysql.jdbc.Blob;
 
 @Entity
 @Table(name="fotografije")
@@ -27,8 +26,9 @@ public class Fotografija {
 	@Column(name="broj_svidjanja")
 	private Integer brojSvidjanja;
 	
+	@Lob
 	@Column(name="fotografija")
-	private Blob fotografija;
+	private byte[] fotografija;
 	
 	//Constructors
 	public Fotografija() {}
@@ -40,7 +40,7 @@ public class Fotografija {
 		this.brojSvidjanja = brojSvidjanja;
 	}
 	
-	public Fotografija(Integer korisnikID, Integer lokacijaID, Integer brojSvidjanja, Blob fotografija) {
+	public Fotografija(Integer korisnikID, Integer lokacijaID, Integer brojSvidjanja, byte[] fotografija) {
 		//this.id = id; //automatski se generise u bazi
 		this.korisnikID = korisnikID;
 		this.lokacijaID = lokacijaID;
@@ -65,7 +65,7 @@ public class Fotografija {
 		return this.brojSvidjanja;
 	}
 	
-	public Blob getFotogradija() {
+	public byte[] getFotogradija() {
 		return this.fotografija;
 	}
 	/*
@@ -85,7 +85,7 @@ public class Fotografija {
 		this.brojSvidjanja = brojSvidjanja;
 	}
 	
-	public void setFotografija(Blob fotografija) {
+	public void setFotografija(byte[] fotografija) {
 		this.fotografija = fotografija;
 	}
 

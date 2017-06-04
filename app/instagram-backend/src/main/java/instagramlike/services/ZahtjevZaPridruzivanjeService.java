@@ -2,12 +2,12 @@ package instagramlike.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import instagramlike.models.ZahtjevZaPridruzivanje;
 import instagramlike.repositories.ZahtjevZaPridruzivanjeRepository;
 
-
+@Service
 public class ZahtjevZaPridruzivanjeService {
 	
 	@Autowired
@@ -18,7 +18,7 @@ public class ZahtjevZaPridruzivanjeService {
 	}
 	
 	public List<ZahtjevZaPridruzivanje> findRequestsByUserID(Integer ID) {
-		return repo.findAllByKorisnikID(ID);
+		return repo.findAllBykorisnikID(ID);
 	}
 	
 	public Boolean deleteRequestById(Integer ID) {
@@ -26,7 +26,7 @@ public class ZahtjevZaPridruzivanjeService {
 	}
 	
 	public Boolean deleteRequestByUserID(Integer ID) {
-		return repo.deleteByKorisnikID(ID);
+		return repo.deleteBykorisnikID(ID);
 	}
 	
 	public void updateRequest(ZahtjevZaPridruzivanje ab) {

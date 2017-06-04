@@ -1,10 +1,14 @@
 package instagramlike.services;
 
+import static org.mockito.Matchers.intThat;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import instagramlike.models.Fotografija;
 import instagramlike.repositories.FotografijaRepository;
 
+@Service
 public class FotografijaService {
 	
 	@Autowired

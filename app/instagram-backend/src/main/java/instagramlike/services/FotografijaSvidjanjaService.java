@@ -3,10 +3,12 @@ package instagramlike.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import instagramlike.models.FotografijaSvidjanja;
 import instagramlike.repositories.FotografijaSvidjanjaRepository;
 
+@Service
 public class FotografijaSvidjanjaService {
 	
 	@Autowired

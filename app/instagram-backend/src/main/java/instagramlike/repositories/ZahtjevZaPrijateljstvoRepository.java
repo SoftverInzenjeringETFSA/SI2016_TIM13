@@ -9,8 +9,10 @@ import instagramlike.models.ZahtjevZaPrijateljstvo;
 @Repository
 public interface ZahtjevZaPrijateljstvoRepository  extends CrudRepository<ZahtjevZaPrijateljstvo, Integer> {
 	public List<ZahtjevZaPrijateljstvo> findAll();
-	public List<ZahtjevZaPrijateljstvo> findAllByKorisnikID(Integer ID);
+	public List<ZahtjevZaPrijateljstvo> findAllByposiljaocID(Integer ID);
+	public List<ZahtjevZaPrijateljstvo> findAllByprimaocID(Integer ID);
 	public ZahtjevZaPrijateljstvo findByid(Integer ID);
-	public Boolean deleteByKorisnikID(Integer ID);
+	public Boolean deleteByposiljaocID(Integer ID);
+	public Boolean deleteByprimaocID(Integer ID);
 	public Boolean deleteByid(Integer ID);
 }
