@@ -27,11 +27,12 @@ public class PozivnicaZaPanelService {
 		return repo.deleteById(ID);
 	}
 	
-	public Boolean deletePozivnicaZaPanelByID(Integer ID) {
-		return repo.deleteById(ID);
-	}
 	public Boolean deletePozivnicaZaPanelByPosiljaocID(Integer ID) {
 		return repo.deleteByposiljaocID(ID);
+	}
+	
+	public Boolean deletePozivnicaZaPanelByPrimaocID(Integer ID) {
+		return repo.deleteByprimaocID(ID);
 	}
 	
 	public List<PozivnicaZaPanel> findAllPozivnicaZaPanels() {
@@ -42,6 +43,10 @@ public class PozivnicaZaPanelService {
 		return repo.findById(ID);
 	}
 	public List<PozivnicaZaPanel> findPozivnicaZaPanelByPosiljaocId(Integer ID) {
+		return repo.findByposiljaocID(ID);
+	}
+	
+	public List<PozivnicaZaPanel> findPozivnicaZaPanelByPrimaocId(Integer ID) {
 		return repo.findByposiljaocID(ID);
 	}
 	
