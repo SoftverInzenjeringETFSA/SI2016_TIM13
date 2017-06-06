@@ -18,8 +18,9 @@ public class PozivnicaZaPanelService {
 		repo.save(notif);
 	}
 	
-	public void updatePozivnicaZaPanel(PozivnicaZaPanel notif) {
+	public Boolean updatePozivnicaZaPanel(PozivnicaZaPanel notif) {
 		repo.save(notif);
+		return true;
 	}
 	
 	public Boolean deletePozivnicaZaPanelById(Integer ID) {

@@ -18,8 +18,9 @@ public class PanelService {
 		repo.save(notif);
 	}
 	
-	public void updatePanel(Panel notif) {
+	public Boolean updatePanel(Panel notif) {
 		repo.save(notif);
+		return true;
 	}
 	
 	public Boolean deletePanelById(Integer ID) {

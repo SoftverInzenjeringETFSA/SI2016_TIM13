@@ -29,8 +29,10 @@ public class ZahtjevZaPridruzivanjeService {
 		return repo.deleteBykorisnikID(ID);
 	}
 	
-	public void updateRequest(ZahtjevZaPridruzivanje ab) {
+	public Boolean updateRequest(ZahtjevZaPridruzivanje ab) {
 		repo.save(ab);
+		return true;
+		
 	}
 	
 	

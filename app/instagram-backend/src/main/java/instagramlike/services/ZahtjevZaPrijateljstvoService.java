@@ -44,8 +44,9 @@ public class ZahtjevZaPrijateljstvoService {
 	
 	
 	
-	public void updateRequest(ZahtjevZaPrijateljstvo ab) {
+	public Boolean updateRequest(ZahtjevZaPrijateljstvo ab) {
 		repo.save(ab);
+		return true;
 	}
 	
 	

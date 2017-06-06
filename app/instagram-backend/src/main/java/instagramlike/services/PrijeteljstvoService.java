@@ -18,8 +18,9 @@ public class PrijeteljstvoService {
 		repo.save(notif);
 	}
 	
-	public void updatePozivnicaZaPanel(Prijateljstvo notif) {
+	public Boolean updatePozivnicaZaPanel(Prijateljstvo notif) {
 		repo.save(notif);
+		return true;
 	}
 	
 	public Boolean deletePozivnicaZaPanelById(Integer ID) {

@@ -18,8 +18,9 @@ public class LokacijaService {
 		repo.save(location);
 	}
 	
-	public void updateLocation(Lokacija location, Lokacija newLocation) {
+	public Boolean updateLocation(Lokacija location, Lokacija newLocation) {
 		repo.save(location);
+		return true;
 	}
 	
 	public Boolean deleteLocationById(Integer ID) {

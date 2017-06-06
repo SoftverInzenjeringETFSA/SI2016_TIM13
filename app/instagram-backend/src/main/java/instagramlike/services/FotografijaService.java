@@ -22,8 +22,9 @@ public class FotografijaService {
 		return fotoRepository.deleteByKorisnikID(ID);
 	}
 	
-	public void updatePhoto(Fotografija photo) {
+	public Boolean updatePhoto(Fotografija photo) {
 		fotoRepository.save(photo);
+		return true;
 	}
 	
 	public Iterable<Fotografija> findAll() {

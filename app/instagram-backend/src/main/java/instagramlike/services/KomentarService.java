@@ -18,8 +18,9 @@ public class KomentarService {
 		repo.save(comment);
 	}
 	
-	public void updateComment(Komentar comment) {
+	public Boolean updateComment(Komentar comment) {
 		repo.save(comment);
+		return true;
 	}
 	
 	public Boolean deleteCommentById(Integer ID) {

@@ -18,8 +18,9 @@ public class NotifikacijaService {
 		repo.save(notif);
 	}
 	
-	public void updateNotification(Notifikacija notif) {
+	public Boolean updateNotification(Notifikacija notif) {
 		repo.save(notif);
+		return true;
 	}
 	
 	public Boolean deleteNotificationById(Integer ID) {
