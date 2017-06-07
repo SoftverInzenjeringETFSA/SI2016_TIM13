@@ -2,6 +2,8 @@ package instagramlike.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import instagramlike.models.Komentar;
 import instagramlike.repositories.KomentarRepository;
 
 @Service
+@Transactional
 public class KomentarService {
 
 	@Autowired
@@ -23,15 +26,15 @@ public class KomentarService {
 		return true;
 	}
 	
-	public Boolean deleteCommentById(Integer ID) {
+	public Integer deleteCommentById(Integer ID) {
 		return repo.deleteByid(ID);
 	}
 	
-	public Boolean deleteCommentByUserID(Integer ID) {
+	public Integer deleteCommentByUserID(Integer ID) {
 		return repo.deleteByKorisnikID(ID);
 	}
 	
-	public Boolean deleteCommentByPhotoID(Integer ID) {
+	public Integer deleteCommentByPhotoID(Integer ID) {
 		return repo.deleteByfotoID(ID);
 	}
 	

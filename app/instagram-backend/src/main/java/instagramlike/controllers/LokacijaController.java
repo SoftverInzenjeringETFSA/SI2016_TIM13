@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.Lokacija;
@@ -37,7 +39,7 @@ public class LokacijaController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody Lokacija l ) {
+    public ResponseEntity<Serializable> update(@RequestBody Lokacija l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(lokacijaService.updateLocation(l,l));
         }
@@ -48,6 +50,7 @@ public class LokacijaController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<Lokacija> findAll() {
     	List<Lokacija> k;
     	
@@ -79,16 +82,14 @@ public class LokacijaController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteLocation(@RequestParam(name = "user") Integer id) {
+    public Integer deleteLocation(@RequestParam(name = "user") Integer id) {
     	
-    	lokacijaService.deleteLocationById(id);
-        return "obavljeno";
+    	return lokacijaService.deleteLocationById(id);
     }
     @RequestMapping(path = "/delete/name", method = RequestMethod.DELETE)
-    public String deleteLocationByName(@RequestParam(name = "name") String name) {
+    public Integer deleteLocationByName(@RequestParam(name = "name") String name) {
     	
-    	lokacijaService.deleteLocationByName(name);
-        return "obavljeno";
+    	return lokacijaService.deleteLocationByName(name);
     }
     
 }

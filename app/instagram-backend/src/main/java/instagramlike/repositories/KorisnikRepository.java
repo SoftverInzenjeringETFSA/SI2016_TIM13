@@ -15,6 +15,6 @@ public interface KorisnikRepository extends CrudRepository<Korisnik, Integer> {
 	public Korisnik findByKorisnickoIme(String korisnickoIme);
 	public Korisnik findByKorisnikId(Integer korisnikId);
 	public List<Korisnik> findAll();
-	public Boolean deleteByKorisnickoIme(String userName);
+	public Integer deleteByKorisnickoIme(String korisnickoIme);
 
 } 

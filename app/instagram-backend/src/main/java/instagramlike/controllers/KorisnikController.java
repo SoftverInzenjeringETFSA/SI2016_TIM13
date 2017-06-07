@@ -1,5 +1,8 @@
 package instagramlike.controllers;
 
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.Korisnik;
@@ -44,13 +48,14 @@ public class KorisnikController {
     @RequestMapping(value = "/register", method = RequestMethod.PUT)
     public String register(@RequestBody Korisnik korisnik)
     {   
-    	//provjeriti sta koja fja vraca i uraditi
-    		korisnikService.registerKorisnik(korisnik);
-            return korisnik.toString(); 
+    	Boolean test = korisnikService.registerKorisnik(korisnik);
+        if (test)
+        	return korisnik.toString();
+        return Boolean.FALSE.toString();
     }
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody Korisnik korisnik ) {
+    public ResponseEntity<Serializable> update(@RequestBody Korisnik korisnik ) {
         try {
             return ResponseEntity.status(HttpStatus.OK)
                                 .body(korisnikService.updateKorisnik(korisnik));
@@ -62,6 +67,7 @@ public class KorisnikController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<Korisnik> findAll() {
     	List<Korisnik> k;
     	
@@ -82,7 +88,7 @@ public class KorisnikController {
     @RequestMapping(path= "/add", method = RequestMethod.PUT)
 	public String addKorisnici(@ModelAttribute("imeForme") Korisnik k){
 		
-		if(k.getkorisnik_id() == 0) {
+		if(k.getKorisnikId() == 0) {
 			korisnikService.registerKorisnik(k);
 		}
 		else {
@@ -93,20 +99,17 @@ public class KorisnikController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteKorisnici(@RequestParam(name = "user") String user) {
+    public Integer deleteKorisnici(@RequestParam(name = "user") String user) {
     	
-    	korisnikService.removeKorisnik(user);
-        return "obavljeno";
+        return korisnikService.removeKorisnik(user);
     }
     
-    @RequestMapping(path = "/getid", method = RequestMethod.GET) 
-    public Integer getKorisnikID(@RequestParam(name = "user") String user) {
-    	Korisnik korisnik = this.korisnikService.findByUsername(user);
-    	
-    	if (korisnik == null)
-    		return 0; //vrati nulu ako korisnik ne postoji
-    	
-    	return korisnik.getkorisnik_id();
+    @RequestMapping(path = "/getid", method = RequestMethod.GET)
+    @ResponseBody
+    public Korisnik getKorisnikID(@RequestParam(name = "user") Integer id) {
+    	Korisnik korisnik = this.korisnikService.findByKorisnikId(id);
+
+    	return korisnik;
     }
     
 }

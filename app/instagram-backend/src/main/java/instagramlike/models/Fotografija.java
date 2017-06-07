@@ -65,7 +65,7 @@ public class Fotografija {
 		return this.brojSvidjanja;
 	}
 	
-	public byte[] getFotogradija() {
+	public byte[] getFotografija() {
 		return this.fotografija;
 	}
 	/*

@@ -2,6 +2,8 @@ package instagramlike.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import instagramlike.models.Lokacija;
 import instagramlike.repositories.LokacijaRepository;
 
 @Service
+@Transactional
 public class LokacijaService {
 
 	@Autowired
@@ -23,11 +26,11 @@ public class LokacijaService {
 		return true;
 	}
 	
-	public Boolean deleteLocationById(Integer ID) {
+	public Integer deleteLocationById(Integer ID) {
 		return repo.deleteByid(ID);
 	}
 	
-	public Boolean deleteLocationByName(String name) {
+	public Integer deleteLocationByName(String name) {
 		return repo.deleteBynaziv(name);
 	}
 	

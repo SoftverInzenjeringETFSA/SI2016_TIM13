@@ -16,7 +16,7 @@ public interface PanelRepository extends CrudRepository<Panel, Integer> {
 	public List<Panel> findAll();
 	public Panel findById(Integer ID);
 	public List<Panel> findBykreatorID(Integer ID);
-	public Boolean deleteById(Integer ID);
-	public Boolean deleteBykreatorID(Integer ID);
+	public Integer deleteById(Integer ID);
+	public Integer deleteBykreatorID(Integer ID);
 
 }

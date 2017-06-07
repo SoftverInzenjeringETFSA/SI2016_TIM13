@@ -50,22 +50,19 @@ public class FotografijaSvidjanjaController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteById(@RequestParam(name = "user") Integer user) {
+    public Integer deleteById(@RequestParam(name = "user") Integer user) {
     	
-    	fotografijaService.deleteById(user);
-        return "obavljeno";
+    	return fotografijaService.deleteById(user);
     }
     @RequestMapping(path = "/delete/fotoid", method = RequestMethod.DELETE)
-    public String deleteByFotoId(@RequestParam(name = "user") Integer user) {
+    public Integer deleteByFotoId(@RequestParam(name = "user") Integer user) {
     	
-    	fotografijaService.deleteByKorisnikID(user);
-        return "obavljeno";
+    	return fotografijaService.deleteByKorisnikID(user);
     }
     @RequestMapping(path = "/delete/korisnikid", method = RequestMethod.DELETE)
-    public String deleteByKorisnikId(@RequestParam(name = "user") Integer user) {
+    public Integer deleteByKorisnikId(@RequestParam(name = "user") Integer user) {
     	
-    	fotografijaService.deleteByKorisnikID(user);
-        return "obavljeno";
+    	return fotografijaService.deleteByKorisnikID(user);
     }
     
     

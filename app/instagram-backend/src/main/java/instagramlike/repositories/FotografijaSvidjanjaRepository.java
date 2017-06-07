@@ -13,8 +13,8 @@ public interface FotografijaSvidjanjaRepository extends CrudRepository<Fotografi
 	public FotografijaSvidjanja findByid(Integer ID);
 	public List<FotografijaSvidjanja> findByKorisnikID(Integer ID);
 	public List<FotografijaSvidjanja> findByFotoID(Integer ID);
-	public Boolean deleteById(Integer ID);
-	public Boolean deleteByKorisnikID(Integer ID);
-	public Boolean deleteByFotoID(Integer ID);
+	public Integer deleteById(Integer ID);
+	public Integer deleteByKorisnikID(Integer ID);
+	public Integer deleteByFotoID(Integer ID);
 	
 }

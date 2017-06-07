@@ -2,6 +2,8 @@ package instagramlike.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import instagramlike.models.Panel;
 import instagramlike.repositories.PanelRepository;
 
 @Service
+@Transactional
 public class PanelService {
 	
 	@Autowired
@@ -23,11 +26,11 @@ public class PanelService {
 		return true;
 	}
 	
-	public Boolean deletePanelById(Integer ID) {
+	public Integer deletePanelById(Integer ID) {
 		return repo.deleteById(ID);
 	}
 	
-	public Boolean deletePanelsByUserID(Integer ID) {
+	public Integer deletePanelsByUserID(Integer ID) {
 		return repo.deleteBykreatorID(ID);
 	}
 	

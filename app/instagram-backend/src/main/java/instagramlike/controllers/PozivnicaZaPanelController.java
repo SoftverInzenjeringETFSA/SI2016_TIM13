@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.PozivnicaZaPanel;
@@ -44,7 +46,7 @@ public class PozivnicaZaPanelController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody PozivnicaZaPanel l ) {
+    public ResponseEntity<Serializable> update(@RequestBody PozivnicaZaPanel l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(pS.updatePozivnicaZaPanel(l));
         }
@@ -55,6 +57,7 @@ public class PozivnicaZaPanelController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<PozivnicaZaPanel> findAll() {
     	List<PozivnicaZaPanel> k;
     	
@@ -73,21 +76,18 @@ public class PozivnicaZaPanelController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deletePozivnicaZaPanelById(@RequestParam(name = "user") Integer user) {
+    public Integer deletePozivnicaZaPanelById(@RequestParam(name = "user") Integer user) {
     	
-    	pS.deletePozivnicaZaPanelById(user);
-        return "obavljeno";
+    	return pS.deletePozivnicaZaPanelById(user);
     }
     @RequestMapping(path = "/delete/receiverid", method = RequestMethod.DELETE)
-    public String deletePozivnicaZaPanelByID(@RequestParam(name = "receiver") Integer receiver) {
+    public Integer deletePozivnicaZaPanelByID(@RequestParam(name = "receiver") Integer receiver) {
     	
-    	pS.deletePozivnicaZaPanelByPrimaocID(receiver);
-        return "obavljeno";
+    	return pS.deletePozivnicaZaPanelByPrimaocID(receiver);
     }
     @RequestMapping(path = "/delete/senderid", method = RequestMethod.DELETE)
-    public String findPozivnicaZaPanelByPosiljaocId(@RequestParam(name = "sender") Integer sender) {
+    public Integer deletePozivnicaZaPanelByPosiljaocId(@RequestParam(name = "sender") Integer sender) {
     	
-    	pS.findPozivnicaZaPanelByPosiljaocId(sender);
-        return "obavljeno";
+    	return pS.deletePozivnicaZaPanelByPosiljaocID(sender);
     }
 }

@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.ZahtjevZaPrijateljstvo;
@@ -44,7 +46,7 @@ public class ZahtjevZaPrijateljstvoController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody ZahtjevZaPrijateljstvo l ) {
+    public ResponseEntity<Serializable> update(@RequestBody ZahtjevZaPrijateljstvo l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(pS.updateRequest(l));
         }
@@ -55,6 +57,7 @@ public class ZahtjevZaPrijateljstvoController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<ZahtjevZaPrijateljstvo> findAll() {
     	List<ZahtjevZaPrijateljstvo> k;
     	
@@ -64,18 +67,21 @@ public class ZahtjevZaPrijateljstvoController {
     }
    
     @RequestMapping(path="/get/sender", method = RequestMethod.GET)
+    @ResponseBody
     public List<ZahtjevZaPrijateljstvo> findRequestsByUserID(@RequestParam(name = "id", defaultValue = "1") int id) {
     	
         	return pS.findRequestsBySenderID(id);
     	
     }
     @RequestMapping(path="/get/receiver", method = RequestMethod.GET)
+    @ResponseBody
     public List<ZahtjevZaPrijateljstvo> findRequestsByReceiverID(@RequestParam(name = "id", defaultValue = "1") int id) {
     	
         	return pS.findRequestsByReceiverID(id);
     	
     }
     @RequestMapping(path="/get", method = RequestMethod.GET)
+    @ResponseBody
     public ZahtjevZaPrijateljstvo findRequestsByID(@RequestParam(name = "id", defaultValue = "1") int id) {
     	
         	return pS.findRequestsByID(id);
@@ -91,21 +97,18 @@ public class ZahtjevZaPrijateljstvoController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteRequestById(@RequestParam(name = "user") Integer user) {
+    public Integer deleteRequestById(@RequestParam(name = "user") Integer user) {
     	
-    	pS.deleteRequestById(user);
-        return "obavljeno";
+    	return pS.deleteRequestById(user);
     }
     @RequestMapping(path = "/delete/sender", method = RequestMethod.DELETE)
-    public String deleteRequestBySenderID(@RequestParam(name = "user") Integer user) {
+    public Integer deleteRequestBySenderID(@RequestParam(name = "user") Integer user) {
     	
-    	pS.deleteRequestBySenderID(user);
-        return "obavljeno";
+    	return pS.deleteRequestBySenderID(user);
     }
     @RequestMapping(path = "/delete/receiver", method = RequestMethod.DELETE)
-    public String deleteRequestByReceiverID(@RequestParam(name = "user") Integer user) {
+    public Integer deleteRequestByReceiverID(@RequestParam(name = "user") Integer user) {
     	
-    	pS.deleteRequestByReceiverID(user);
-        return "obavljeno";
+    	return pS.deleteRequestByReceiverID(user);
     }
 }

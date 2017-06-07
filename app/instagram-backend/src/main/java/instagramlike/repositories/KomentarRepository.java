@@ -14,8 +14,8 @@ public interface KomentarRepository extends CrudRepository<Komentar, Integer> {
 	public List<Komentar> findAllByKorisnikID(Integer ID);
 	public List<Komentar> findAllByfotoID(Integer ID);
 	public Komentar findByid(Integer ID);
-	public Boolean deleteByid(Integer ID);
-	public Boolean deleteByKorisnikID(Integer ID);
-	public Boolean deleteByfotoID(Integer ID);
+	public Integer deleteByid(Integer ID);
+	public Integer deleteByKorisnikID(Integer ID);
+	public Integer deleteByfotoID(Integer ID);
 	
 }

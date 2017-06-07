@@ -9,7 +9,7 @@ import instagramlike.models.ZahtjevZaPridruzivanje;
 public interface  ZahtjevZaPridruzivanjeRepository extends CrudRepository<ZahtjevZaPridruzivanje, Integer>  {
 	public List<ZahtjevZaPridruzivanje> findAll();
 	public List<ZahtjevZaPridruzivanje> findAllBykorisnikID(Integer ID);
-	public Boolean deleteByid(Integer ID);
-	public Boolean deleteBykorisnikID(Integer ID);
+	public Integer deleteByid(Integer ID);
+	public Integer deleteBykorisnikID(Integer ID);
 	
 }

@@ -16,9 +16,9 @@ public interface PozivnicaZaPanelRepository extends CrudRepository<PozivnicaZaPa
 	public PozivnicaZaPanel findBypanelID(Integer ID);
 	public List<PozivnicaZaPanel> findByposiljaocID(Integer ID);
 	public List<PozivnicaZaPanel> findByprimaocID(Integer ID);
-	public Boolean deleteById(Integer ID);
-	public Boolean deleteByposiljaocID(Integer ID);
-	public Boolean deleteByprimaocID(Integer ID);
-	public Boolean deleteByPanelID(Integer ID);
+	public Integer deleteById(Integer ID);
+	public Integer deleteByposiljaocID(Integer ID);
+	public Integer deleteByprimaocID(Integer ID);
+	public Integer deleteByPanelID(Integer ID);
 
 }

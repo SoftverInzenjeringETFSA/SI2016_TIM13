@@ -2,6 +2,8 @@ package instagramlike.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import instagramlike.models.PozivnicaZaPanel;
 import instagramlike.repositories.PozivnicaZaPanelRepository;
 
 @Service
+@Transactional
 public class PozivnicaZaPanelService {
 	
 	@Autowired
@@ -23,15 +26,15 @@ public class PozivnicaZaPanelService {
 		return true;
 	}
 	
-	public Boolean deletePozivnicaZaPanelById(Integer ID) {
+	public Integer deletePozivnicaZaPanelById(Integer ID) {
 		return repo.deleteById(ID);
 	}
 	
-	public Boolean deletePozivnicaZaPanelByPosiljaocID(Integer ID) {
+	public Integer deletePozivnicaZaPanelByPosiljaocID(Integer ID) {
 		return repo.deleteByposiljaocID(ID);
 	}
 	
-	public Boolean deletePozivnicaZaPanelByPrimaocID(Integer ID) {
+	public Integer deletePozivnicaZaPanelByPrimaocID(Integer ID) {
 		return repo.deleteByprimaocID(ID);
 	}
 	

@@ -1,6 +1,8 @@
 package instagramlike.services;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,7 @@ import instagramlike.models.ZahtjevZaPrijateljstvo;
 import instagramlike.repositories.ZahtjevZaPrijateljstvoRepository;
 
 @Service
+@Transactional
 public class ZahtjevZaPrijateljstvoService {
 
 	@Autowired
@@ -30,15 +33,15 @@ public class ZahtjevZaPrijateljstvoService {
 		return repo.findByid(ID);
 	}
 	
-	public Boolean deleteRequestById(Integer ID) {
+	public Integer deleteRequestById(Integer ID) {
 		return repo.deleteByid(ID);
 	}
 	
-	public Boolean deleteRequestBySenderID(Integer ID) {
+	public Integer deleteRequestBySenderID(Integer ID) {
 		return repo.deleteByposiljaocID(ID);
 	}
 	
-	public Boolean deleteRequestByReceiverID(Integer ID) {
+	public Integer deleteRequestByReceiverID(Integer ID) {
 		return repo.deleteByprimaocID(ID);
 	}
 	

@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.Prijateljstvo;
@@ -44,7 +46,7 @@ public class PrijateljstvoController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody Prijateljstvo l ) {
+    public ResponseEntity<Serializable> update(@RequestBody Prijateljstvo l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(pS.updatePozivnicaZaPanel(l));
         }
@@ -55,6 +57,7 @@ public class PrijateljstvoController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<Prijateljstvo> findAll() {
     	List<Prijateljstvo> k;
     	
@@ -82,21 +85,18 @@ public class PrijateljstvoController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deletePozivnicaZaPanelById(@RequestParam(name = "id") Integer id) {
+    public Integer deletePozivnicaZaPanelById(@RequestParam(name = "id") Integer id) {
     	
-    	pS.deletePozivnicaZaPanelById(id);
-        return "obavljeno";
+    	return pS.deletePozivnicaZaPanelById(id);
     }
     @RequestMapping(path = "/delete/user1", method = RequestMethod.DELETE)
-    public String deletePozivnicaZaPanelByID(@RequestParam(name = "user1") Integer userOneId) {
+    public Integer deletePozivnicaZaPanelByID(@RequestParam(name = "user1") Integer userOneId) {
     	
-    	pS.deleteByKorisnik1ID(userOneId);
-        return "obavljeno";
+    	return pS.deleteByKorisnik1ID(userOneId);
     }
     @RequestMapping(path = "/delete/user2", method = RequestMethod.DELETE)
-    public String deleteByKorisnik1ID(@RequestParam(name = "user2") Integer userTwoId) {
+    public Integer deleteByKorisnik1ID(@RequestParam(name = "user2") Integer userTwoId) {
     	
-    	pS.deleteByKorisnik2ID(userTwoId);
-        return "obavljeno";
+    	return pS.deleteByKorisnik2ID(userTwoId);
     }
 }

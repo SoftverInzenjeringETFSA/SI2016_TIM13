@@ -36,7 +36,7 @@ public class Panel {
 		return this.id;
 	}
 	
-	public Integer getkreatorID() {
+	public Integer getKreatorID() {
 		return this.kreatorID;
 	}
 	

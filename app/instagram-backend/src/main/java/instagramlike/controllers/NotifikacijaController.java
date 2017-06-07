@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.Notifikacija;
@@ -44,7 +46,7 @@ public class NotifikacijaController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody Notifikacija l ) {
+    public ResponseEntity<Serializable> update(@RequestBody Notifikacija l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(kS.updateNotification(l));
         }
@@ -55,6 +57,7 @@ public class NotifikacijaController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<Notifikacija> findAll() {
     	List<Notifikacija> k;
     	
@@ -86,15 +89,13 @@ public class NotifikacijaController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteNotificationById(@RequestParam(name = "id") Integer id) {
+    public Integer deleteNotificationById(@RequestParam(name = "id") Integer id) {
     	
-    	kS.deleteNotificationById(id);
-        return "obavljeno";
+    	return kS.deleteNotificationById(id);
     }
     @RequestMapping(path = "/delete/userid", method = RequestMethod.DELETE)
-    public String deleteNotificationsByUserID(@RequestParam(name = "user") Integer user) {
+    public Integer deleteNotificationsByUserID(@RequestParam(name = "user") Integer user) {
     	
-    	kS.deleteNotificationsByUserID(user);
-        return "obavljeno";
+    	return kS.deleteNotificationsByUserID(user);
     }
 }

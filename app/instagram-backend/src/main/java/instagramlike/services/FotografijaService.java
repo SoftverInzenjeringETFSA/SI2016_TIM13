@@ -2,6 +2,8 @@ package instagramlike.services;
 
 import static org.mockito.Matchers.intThat;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import instagramlike.models.Fotografija;
 import instagramlike.repositories.FotografijaRepository;
 
 @Service
+@Transactional
 public class FotografijaService {
 	
 	@Autowired
@@ -18,7 +21,7 @@ public class FotografijaService {
 		fotoRepository.save(photo);
 	}
 	
-	public Boolean removeByKorisnikID(Integer ID) {
+	public Integer removeByKorisnikID(Integer ID) {
 		return fotoRepository.deleteByKorisnikID(ID);
 	}
 	
@@ -39,7 +42,7 @@ public class FotografijaService {
 		return fotoRepository.findById(ID);
 	}
 	
-	public Boolean removeById(Integer ID) {
+	public Integer removeById(Integer ID) {
 		return fotoRepository.deleteById(ID);
 	}
 	

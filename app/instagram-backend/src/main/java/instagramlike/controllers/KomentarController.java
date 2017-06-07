@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.Komentar;
@@ -44,7 +46,7 @@ public class KomentarController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody Komentar l ) {
+    public ResponseEntity<Serializable> update(@RequestBody Komentar l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(kS.updateComment(l));
         }
@@ -55,6 +57,7 @@ public class KomentarController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<Komentar> findAll() {
     	List<Komentar> k;
     	
@@ -86,22 +89,19 @@ public class KomentarController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteComment(@RequestParam(name = "id") Integer id) {
+    public Integer deleteComment(@RequestParam(name = "id") Integer id) {
     	
-    	kS.deleteCommentById(id);
-        return "obavljeno";
+    	return kS.deleteCommentById(id);
     }
     @RequestMapping(path = "/delete/userid", method = RequestMethod.DELETE)
-    public String deleteCommentByUserID(@RequestParam(name = "user") Integer user) {
+    public Integer deleteCommentByUserID(@RequestParam(name = "user") Integer user) {
     	
-    	kS.deleteCommentByUserID(user);
-        return "obavljeno";
+    	return kS.deleteCommentByUserID(user);
     }
     @RequestMapping(path = "/delete/photoid", method = RequestMethod.DELETE)
-    public String deleteCommentByPhotoId(@RequestParam(name = "photoid") Integer photoid) {
+    public Integer deleteCommentByPhotoId(@RequestParam(name = "photoid") Integer photoid) {
     	
-    	kS.deleteCommentByPhotoID(photoid);
-        return "obavljeno";
+    	return kS.deleteCommentByPhotoID(photoid);
     }
     
 }

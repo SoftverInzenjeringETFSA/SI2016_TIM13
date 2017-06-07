@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.Fotografija;
@@ -48,6 +49,7 @@ public class FotografijaController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<Fotografija> findAll() {
     	List<Fotografija> k;
     	
@@ -79,10 +81,9 @@ public class FotografijaController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteKorisnici(@RequestParam(name = "user") Integer user) {
+    public Integer deleteKorisnici(@RequestParam(name = "user") Integer user) {
     	
-    	fotografijaService.removeById(user);
-        return "obavljeno";
+    	return fotografijaService.removeById(user);
     }
     
     

@@ -2,6 +2,8 @@ package instagramlike.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import instagramlike.models.Notifikacija;
 import instagramlike.repositories.NotifikacijaRepository;
 
 @Service
+@Transactional
 public class NotifikacijaService {
 	
 	@Autowired
@@ -23,11 +26,11 @@ public class NotifikacijaService {
 		return true;
 	}
 	
-	public Boolean deleteNotificationById(Integer ID) {
+	public Integer deleteNotificationById(Integer ID) {
 		return repo.deleteById(ID);
 	}
 	
-	public Boolean deleteNotificationsByUserID(Integer ID) {
+	public Integer deleteNotificationsByUserID(Integer ID) {
 		return repo.deleteByKorisnikID(ID);
 	}
 	

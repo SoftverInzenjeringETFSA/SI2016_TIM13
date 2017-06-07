@@ -2,11 +2,16 @@ package instagramlike.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import instagramlike.models.Prijateljstvo;
 import instagramlike.repositories.PrijateljstvoRepository;
 
+@Service
+@Transactional
 public class PrijeteljstvoServices {
 	
 	@Autowired
@@ -20,17 +25,17 @@ public class PrijeteljstvoServices {
 		repo.save(notif);
 	}
 	
-	public Boolean deletePozivnicaZaPanelById(Integer ID) {
+	public Integer deletePozivnicaZaPanelById(Integer ID) {
 		return repo.deleteById(ID);
 	}
 	
-	public Boolean deletePozivnicaZaPanelByID(Integer ID) {
+	public Integer deletePozivnicaZaPanelByID(Integer ID) {
 		return repo.deleteById(ID);
 	}
-	public Boolean deleteByKorisnik1ID(Integer ID) {
+	public Integer deleteByKorisnik1ID(Integer ID) {
 		return repo.deleteBykorisnik1ID( ID);
 	}
-	public Boolean deleteByKorisnik2ID(Integer ID) {
+	public Integer deleteByKorisnik2ID(Integer ID) {
 		return repo.deleteBykorisnik2ID( ID);
 	}
 	public List<Prijateljstvo> findAllPrijateljstva() {

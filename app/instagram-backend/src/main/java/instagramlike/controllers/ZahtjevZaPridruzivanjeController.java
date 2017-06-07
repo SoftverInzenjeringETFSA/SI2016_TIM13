@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.ZahtjevZaPridruzivanje;
@@ -44,7 +46,7 @@ public class ZahtjevZaPridruzivanjeController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody ZahtjevZaPridruzivanje l ) {
+    public ResponseEntity<Serializable> update(@RequestBody ZahtjevZaPridruzivanje l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(pS.updateRequest(l));
         }
@@ -55,6 +57,7 @@ public class ZahtjevZaPridruzivanjeController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<ZahtjevZaPridruzivanje> findAll() {
     	List<ZahtjevZaPridruzivanje> k;
     	
@@ -64,6 +67,7 @@ public class ZahtjevZaPridruzivanjeController {
     }
    
     @RequestMapping(path="/get", method = RequestMethod.GET)
+    @ResponseBody
     public List<ZahtjevZaPridruzivanje> findRequestsByUserID(@RequestParam(name = "id", defaultValue = "1") int id) {
     	
         	return pS.findRequestsByUserID(id);
@@ -80,16 +84,14 @@ public class ZahtjevZaPridruzivanjeController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteRequestById(@RequestParam(name = "id") Integer id) {
+    public Integer deleteRequestById(@RequestParam(name = "id") Integer id) {
     	
-    	pS.deleteRequestById(id);
-        return "obavljeno";
+    	return pS.deleteRequestById(id);
     }
     @RequestMapping(path = "/delete/userid", method = RequestMethod.DELETE)
-    public String deleteRequestByUserID(@RequestParam(name = "user") Integer user) {
+    public Integer deleteRequestByUserID(@RequestParam(name = "user") Integer user) {
     	
-    	pS.deleteRequestByUserID(user);
-        return "obavljeno";
+    	return pS.deleteRequestByUserID(user);
     }
    
 }

@@ -33,27 +33,27 @@ public class Korisnik implements Serializable {
    
     public Korisnik() {}
     
-    public Korisnik(String ime, String email, String opis, String sifra) {
-    	this.korisnickoIme = ime;
+    public Korisnik(String korisnickoIme, String email, String kratakOpis, String korisnickaSifra) {
+    	this.korisnickoIme = korisnickoIme;
     	this.email = email;
-    	this.kratakOpis = opis;
-    	this.korisnickaSifra = sifra;
+    	this.kratakOpis = kratakOpis;
+    	this.korisnickaSifra = korisnickaSifra;
     }
     
     
-    public Integer getkorisnik_id() {
+    public Integer getKorisnikId() {
 		return this.korisnikId;
 	}
     
-	public void setkorisnik_id(Integer id) {
+	public void setKorisnikId(Integer id) {
 		this.korisnikId = id;
 	}
 	
-	public String getKorisnickaSifraHash() {
+	public String getKorisnickaSifra() {
 		return korisnickaSifra;
 	}
 	
-	public void setKorisnickaSifraHash(String password) {
+	public void setKorisnickaSifra(String password) {
 		this.korisnickaSifra = password;
 	}
 	
@@ -84,8 +84,8 @@ public class Korisnik implements Serializable {
 	
 	@Override
     public String toString() {
-        return String.format("{ \"korisnik_id\": %d, \"korisnicko_ime\": %s, \"email\": %s,"
-        					+ " \"korisnicka_sifra_hash\": %s, \"kratak_opis\": %s }", 
-        					this.korisnikId, this.korisnickaSifra, this.email, this.korisnickaSifra, this.kratakOpis);
+        return String.format("{ \"korisnik_id\": %d, \"korisnicko_ime\": \"%s\", \"email\": \"%s\","
+        					+ " \"korisnicka_sifra_hash\": \"%s\", \"kratak_opis\": \"%s\" }", 
+        					this.korisnikId, this.korisnickoIme, this.email, this.korisnickaSifra, this.kratakOpis);
     }
 }

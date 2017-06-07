@@ -17,8 +17,8 @@ public interface PrijateljstvoRepository extends CrudRepository<Prijateljstvo, I
 
 	public List<Prijateljstvo> findBykorisnik1ID(Integer ID);
 	public List<Prijateljstvo> findBykorisnik2ID(Integer ID);
-	public Boolean deleteById(Integer ID);
-	public Boolean deleteBykorisnik1ID(Integer ID);
-	public Boolean deleteBykorisnik2ID(Integer ID);
+	public Integer deleteById(Integer ID);
+	public Integer deleteBykorisnik1ID(Integer ID);
+	public Integer deleteBykorisnik2ID(Integer ID);
 
 }

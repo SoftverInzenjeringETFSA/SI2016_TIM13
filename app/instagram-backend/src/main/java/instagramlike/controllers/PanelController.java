@@ -1,5 +1,6 @@
 package instagramlike.controllers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import instagramlike.models.Panel;
@@ -44,7 +46,7 @@ public class PanelController {
     
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ResponseEntity update(@RequestBody Panel l ) {
+    public ResponseEntity<Serializable> update(@RequestBody Panel l ) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(pS.updatePanel(l));
         }
@@ -55,6 +57,7 @@ public class PanelController {
     }
 
     @RequestMapping(path="/get/all", method = RequestMethod.GET)
+    @ResponseBody
     public List<Panel> findAll() {
     	List<Panel> k;
     	
@@ -86,16 +89,14 @@ public class PanelController {
 	}
     
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deletePanelById(@RequestParam(name = "id") Integer id) {
+    public Integer deletePanelById(@RequestParam(name = "id") Integer id) {
     	
-    	pS.deletePanelById(id);
-        return "obavljeno";
+    	return pS.deletePanelById(id);
     }
     @RequestMapping(path = "/delete/userid", method = RequestMethod.DELETE)
-    public String deletePanelsByUserID(@RequestParam(name = "user") Integer user) {
+    public Integer deletePanelsByUserID(@RequestParam(name = "user") Integer user) {
     	
-    	pS.deletePanelsByUserID(user);
-        return "obavljeno";
+    	return pS.deletePanelsByUserID(user);
     }
     
 }

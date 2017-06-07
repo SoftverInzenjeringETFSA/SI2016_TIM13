@@ -13,7 +13,7 @@ public interface NotifikacijaRepository extends CrudRepository<Notifikacija, Int
 	public List<Notifikacija> findAll();
 	public Notifikacija findById(Integer ID);
 	public List<Notifikacija> findByKorisnikID(Integer ID);
-	public Boolean deleteById(Integer ID);
-	public Boolean deleteByKorisnikID(Integer ID);
+	public Integer deleteById(Integer ID);
+	public Integer deleteByKorisnikID(Integer ID);
 
 }

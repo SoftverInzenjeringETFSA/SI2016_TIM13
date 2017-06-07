@@ -14,7 +14,7 @@ public interface FotografijaRepository extends CrudRepository<Fotografija, Integ
 	public Fotografija findById(Integer ID);
 	public Fotografija findByKorisnikID(Integer ID);//pretraga fotografija prema id-u korisnika
 	public List<Fotografija> findAll();
-	public Boolean deleteById(Integer ID);
-	public Boolean deleteByKorisnikID(Integer ID);
+	public Integer deleteById(Integer ID);
+	public Integer deleteByKorisnikID(Integer ID);
 
 } 
